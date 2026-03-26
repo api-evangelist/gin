@@ -1,0 +1,156 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://github.com/api-evangelist/gin/json-schema/gin-configuration.json",
+  "title": "Gin Router and Middleware Configuration",
+  "description": "JSON Schema for Gin web framework router engine configuration and common middleware settings.",
+  "type": "object",
+  "properties": {
+    "mode": {
+      "type": "string",
+      "enum": ["debug", "release", "test"],
+      "default": "debug",
+      "description": "Gin mode (set via GIN_MODE env var or gin.SetMode())."
+    },
+    "redirectTrailingSlash": {
+      "type": "boolean",
+      "default": true,
+      "description": "Redirect /foo/ to /foo or vice versa."
+    },
+    "redirectFixedPath": {
+      "type": "boolean",
+      "default": false,
+      "description": "Try to fix and redirect the request path."
+    },
+    "handleMethodNotAllowed": {
+      "type": "boolean",
+      "default": false,
+      "description": "Return 405 instead of 404 for mismatched methods."
+    },
+    "forwardedByClientIP": {
+      "type": "boolean",
+      "default": true,
+      "description": "Parse client IP from X-Forwarded-For / X-Real-IP."
+    },
+    "useRawPath": {
+      "type": "boolean",
+      "default": false,
+      "description": "Use url.RawPath for route matching."
+    },
+    "unescapePathValues": {
+      "type": "boolean",
+      "default": true,
+      "description": "Unescape path values for matching."
+    },
+    "removeExtraSlash": {
+      "type": "boolean",
+      "default": false,
+      "description": "Remove extra slashes from URL path."
+    },
+    "maxMultipartMemory": {
+      "type": "integer",
+      "default": 33554432,
+      "description": "Maximum memory for multipart forms in bytes (default 32MB)."
+    },
+    "trustedPlatform": {
+      "type": "string",
+      "description": "Trusted platform header (e.g., X-Forwarded-For)."
+    },
+    "trustedProxies": {
+      "type": "array",
+      "items": { "type": "string" },
+      "description": "List of trusted proxy CIDR ranges."
+    },
+    "middleware": {
+      "type": "object",
+      "properties": {
+        "logger": {
+          "type": "object",
+          "properties": {
+            "enabled": {
+              "type": "boolean",
+              "default": true,
+              "description": "Enable request logging middleware."
+            },
+            "formatter": {
+              "type": "string",
+              "description": "Custom log format string."
+            },
+            "output": {
+              "type": "string",
+              "description": "Log output destination."
+            },
+            "skipPaths": {
+              "type": "array",
+              "items": { "type": "string" },
+              "description": "Paths to skip logging."
+            }
+          }
+        },
+        "recovery": {
+          "type": "object",
+          "properties": {
+            "enabled": {
+              "type": "boolean",
+              "default": true,
+              "description": "Enable panic recovery middleware."
+            }
+          }
+        },
+        "cors": {
+          "type": "object",
+          "properties": {
+            "allowOrigins": {
+              "type": "array",
+              "items": { "type": "string" },
+              "default": ["*"],
+              "description": "Allowed origins."
+            },
+            "allowMethods": {
+              "type": "array",
+              "items": { "type": "string" },
+              "description": "Allowed HTTP methods."
+            },
+            "allowHeaders": {
+              "type": "array",
+              "items": { "type": "string" },
+              "description": "Allowed request headers."
+            },
+            "exposeHeaders": {
+              "type": "array",
+              "items": { "type": "string" },
+              "description": "Headers exposed to the client."
+            },
+            "allowCredentials": {
+              "type": "boolean",
+              "default": false,
+              "description": "Allow credentials."
+            },
+            "maxAge": {
+              "type": "integer",
+              "description": "Preflight cache duration in seconds."
+            }
+          }
+        },
+        "rateLimiter": {
+          "type": "object",
+          "properties": {
+            "enabled": {
+              "type": "boolean",
+              "default": false,
+              "description": "Enable rate limiting middleware."
+            },
+            "limit": {
+              "type": "integer",
+              "description": "Maximum requests per period."
+            },
+            "period": {
+              "type": "string",
+              "description": "Rate limit period duration."
+            }
+          }
+        }
+      },
+      "description": "Common middleware configuration."
+    }
+  }
+}

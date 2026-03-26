@@ -19,7 +19,10 @@ apis:
     humanURL: https://gin-gonic.com/
     tags:
       - Microservices
-    properties: []
+    properties:
+      - type: JSONSchema
+        url: >-
+          https://raw.githubusercontent.com/api-evangelist/gin/refs/heads/main/json-schema/gin-configuration.json
 common:
   - type: Website
     url: https://gin-gonic.com/
