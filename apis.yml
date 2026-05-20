@@ -24,6 +24,8 @@ apis:
         url: >-
           https://raw.githubusercontent.com/api-evangelist/gin/refs/heads/main/json-schema/gin-configuration.json
 common:
+  - type: GitHubOrganization
+    url: https://github.com/gin-gonic
   - type: Website
     url: https://gin-gonic.com/
 maintainers:
