@@ -3,7 +3,7 @@ name: Gin
 description: >-
   Gin is a high-performance HTTP web framework for Go that provides a fast and productive way to build microservices and APIs.
 type: Index
-image: https://kinlane-productions.s3.amazonaws.com/apis-json/apis-json-logo.jpg
+image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/apis-json-logo.jpg
 tags:
   - Microservices
 url: >-
