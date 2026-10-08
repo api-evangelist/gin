@@ -47,6 +47,12 @@ apis:
         url: >-
           https://raw.githubusercontent.com/api-evangelist/gin/refs/heads/main/json-schema/gin-configuration.json
 common:
+  - type: Plans
+    url: plans/gin-plans-pricing.yml
+  - type: RateLimits
+    url: rate-limits/gin-rate-limits.yml
+  - type: FinOps
+    url: finops/gin-finops.yml
   - type: DomainSecurity
     url: security/gin-domain-security.yml
   - type: GitHubOrganization
